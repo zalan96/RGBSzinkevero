@@ -18,7 +18,6 @@ namespace RGBSzinkevero
             InitializeComponent();
         }
 
-        // Slider mozgatásakor frissítünk mindent
         private void Slider_ValueChanged(object sender,
             RoutedPropertyChangedEventArgs<double> e)
         {
@@ -31,15 +30,13 @@ namespace RGBSzinkevero
             int g = (int)sliderG.Value;
             int b = (int)sliderB.Value;
 
-            // Szövegek frissítése
             tbR.Text = $"R: {r}";
             tbG.Text = $"G: {g}";
             tbBl.Text = $"B: {b}";
 
             tbRGB.Text = $"RGB({r}, {g}, {b})";
             tbHex.Text = $"#{r:X2}{g:X2}{b:X2}";
-
-            // Rectangle-ok háttérszíne
+       
             var szinR = Color.FromRgb((byte)r, 0, 0);
             var szinG = Color.FromRgb(0, (byte)g, 0);
             var szinB = Color.FromRgb(0, 0, (byte)b);
@@ -48,14 +45,12 @@ namespace RGBSzinkevero
             rectG.Fill = new SolidColorBrush(szinG);
             rectB.Fill = new SolidColorBrush(szinB);
 
-            // Canvas háttér (jobb oldal)
             var vegSzin = Color.FromRgb((byte)r, (byte)g, (byte)b);
             previewCanvas.Background = new SolidColorBrush(vegSzin);
         }
 
         private void Check_Changed(object sender, RoutedEventArgs e)
         {
-            // Ha kell: HEX szöveg megjelenítése/elrejtése
             tbHex.Visibility = checkHex.IsChecked == true
                 ? Visibility.Visible : Visibility.Collapsed;
         }

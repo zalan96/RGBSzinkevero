@@ -48,7 +48,7 @@ namespace RGBSzinkevero
             var vegSzin = Color.FromRgb((byte)r, (byte)g, (byte)b);
             previewCanvas.Background = new SolidColorBrush(vegSzin);
         }
-
+         
         private void Check_Changed(object sender, RoutedEventArgs e)
         {
             tbHex.Visibility = checkHex.IsChecked == true

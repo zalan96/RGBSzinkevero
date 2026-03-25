@@ -1,0 +1,66 @@
+﻿<Window x:Class="RGBSzinkevero.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RGB Színkeverő" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="20">
+
+            <TextBlock Text="Piros (R):" FontWeight="Bold"/>
+            <Slider x:Name="sliderR" Minimum="0" Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
+
+            <TextBlock Text="Zöld (G):" FontWeight="Bold"/>
+            <Slider x:Name="sliderG" Minimum="0" Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
+
+            <TextBlock Text="Kék (B):" FontWeight="Bold"/>
+            <Slider x:Name="sliderB" Minimum="0" Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
+
+            <CheckBox x:Name="checkHex" Content="HEX megjelenítés"
+                      Margin="0,10,0,0" Checked="Check_Changed"
+                      Unchecked="Check_Changed"/>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <StackPanel Margin="5">
+                    <Rectangle x:Name="rectR" Width="60" Height="60"
+                               Fill="Red"/>
+                    <TextBlock x:Name="tbR" Text="R: 0" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <Rectangle x:Name="rectG" Width="60" Height="60"
+                               Fill="Green"/>
+                    <TextBlock x:Name="tbG" Text="G: 0" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <Rectangle x:Name="rectB" Width="60" Height="60"
+                               Fill="Blue"/>
+                    <TextBlock x:Name="tbBl" Text="B: 0" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock x:Name="tbRGB" Text="RGB(0, 0, 0)"
+                       FontSize="14" Margin="0,10,0,0"/>
+            <TextBlock x:Name="tbHex" Text="#000000"
+                       FontSize="14"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                <Button Content="Reset" Width="80" Margin="5"
+                        Click="BtnReset_Click"/>
+                <Button Content="Véletlen" Width="80" Margin="5"
+                        Click="BtnRandom_Click"/>
+                <Button Content="Másolás" Width="80" Margin="5"
+                        Click="BtnCopy_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="20">
+            <TextBlock Text="Előnézet:" FontWeight="Bold"/>
+            <Canvas x:Name="previewCanvas" Width="300" Height="300"
+                    Background="Black"/>
+        </StackPanel>
+    </Grid>
+</Window>
